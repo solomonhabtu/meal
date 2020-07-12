@@ -74,13 +74,17 @@ class MealApi(Resource):
 
     """
     @jwt_required
-    def get(self, meal_id: str) -> Response:
+    def get(self, type: str, value: str) -> Response:
         """
         GET response method for single documents in meal collection.
 
         :return: JSON object
         """
-        output = Meals.objects.get(id=meal_id)
+        output = None
+        if type == "id": output = Meals.objects.get(id=value)
+        if type == "name": output = Meals.objects.get(name=value)
+        if type == "description": output = Meals.objects.get(description=value)
+
         return jsonify({'result': output})
 
     @jwt_required
