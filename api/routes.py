@@ -18,6 +18,7 @@ def create_routes(api: Api):
         api.add_resource(Foo, '/foo', endpoint="foo")
         api.add_resource(FooSpecial, '/special/foo', endpoint="foo")
 
+
     """
     api.add_resource(SignUpApi, '/authentication/signup/')
     api.add_resource(LoginApi, '/authentication/login/')
